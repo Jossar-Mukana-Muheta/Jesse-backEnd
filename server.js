@@ -17,8 +17,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-
 require("./app/routes/exemple.routes")(app);
+require("./app/routes/education.routes")(app);
+require("./app/routes/espoir.routes")(app);
+require("./app/routes/event.routes")(app);
+require("./app/routes/jeunesse.routes")(app);
+require("./app/routes/projets.routes")(app);
+require("./app/routes/sante.routes")(app);
+require("./app/routes/solidarite.routes")(app);
+require("./app/routes/user.routes")(app);
 
 
 // set port, listen for requests
