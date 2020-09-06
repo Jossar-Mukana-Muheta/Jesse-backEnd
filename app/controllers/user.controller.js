@@ -1,37 +1,50 @@
 const db = require("../models");
 const User = db.user;
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 // Create and Save a new Tutorial
-exports.create = (req, res) => {
-  
+exports.signup = (req, res) => {
+  bcrypt.hash(req.body.password, 10)
+    .then(hash => {
+      const user = new User({
+        email: req.body.email,
+        password: hash
+      });
+      user.save()
+        .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
+        .catch(error => res.status(400).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
 };
 
-// Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {
-  res.json({ message: "Bienvenue sur le template crée par Jossar ." });
+exports.login = (req, res) => {
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+      }
+      bcrypt.compare(req.body.password, user.password)
+        .then(valid => {
+          if (!valid) {
+            return res.status(401).json({ error: 'Mot de passe incorrect !' });
+          }
+
+          
+          const accessToken = jwt.sign(
+            { userId: user._id },
+            'RANDOM_TOKEN_SECRET',
+            { expiresIn: '30m' }
+          )
+
+          
+
+          res.status(200).json({accessToken
+          });
+          
+        })
+        .catch(error => res.status(500).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
 };
 
-// Find a single Tutorial with an id
-exports.findOne = (req, res) => {
-  
-};
-
-// Update a Tutorial by the id in the request
-exports.update = (req, res) => {
-  
-};
-
-// Delete a Tutorial with the specified id in the request
-exports.delete = (req, res) => {
-  
-};
-
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {
-  
-};
-
-// Find all published Tutorials
-exports.findAllPublished = (req, res) => {
-  
-};

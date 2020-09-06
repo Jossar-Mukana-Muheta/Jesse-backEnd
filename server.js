@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path');
 
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081",
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
@@ -15,6 +17,9 @@ app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Gestion de fichiers
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // simple route
 require("./app/routes/exemple.routes")(app);

@@ -28,5 +28,5 @@ module.exports = app => {
 
 
   // Base url Api
-  app.use('/api/event', router);
+  app.use('/api/events', router);
 };
