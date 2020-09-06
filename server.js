@@ -32,7 +32,9 @@ require("./app/routes/sante.routes")(app);
 require("./app/routes/solidarite.routes")(app);
 require("./app/routes/user.routes")(app);
 
-
+app.get('/', (req, res) => {
+  res.send('Hello from App Engine!');
+});
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
