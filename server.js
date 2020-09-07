@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081", 
+  origin: "https://jesse-96e14.web.app", 
   credentials: true,
 };
 

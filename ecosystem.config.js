@@ -6,8 +6,9 @@ module.exports = {
 
   deploy : {
     production : {
+      key: './sh/jessekey.pem',
       user : 'bitnami',
-      host : '172.26.13.4',
+      host : '52.47.80.181',
       ref  : 'origin/master',
       repo : 'https://github.com/Jossar-Mukana-Muheta/jesse-backend.git',
       path : '/home/bitnami/jesse',
