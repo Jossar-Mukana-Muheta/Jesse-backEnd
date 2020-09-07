@@ -1,7 +1,9 @@
+const auth = require('../middleware/auth')
+  const multer = require('../middleware/multer-config');
+
 module.exports = app => {
   const event = require("../controllers/event.controller.js");
-  const auth = require('../middleware/auth')
-  const multer = require('../middleware/multer-config');
+  
 
   var router = require("express").Router();
 

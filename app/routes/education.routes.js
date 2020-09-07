@@ -6,7 +6,7 @@ module.exports = app => {
   var router = require("express").Router();
 
   // Create a new Tutorial
-  router.post("/",multer,auth, education.create);
+  router.post("/",multer, education.create);
 
   // Retrieve all education
   router.get("/", education.findAll);

@@ -36,9 +36,6 @@ exports.login = (req, res) => {
             'RANDOM_TOKEN_SECRET',
             { expiresIn: '30m' }
           )
-
-          
-
           res.status(200).json({accessToken
           });
           

@@ -6,11 +6,12 @@ const path = require('path');
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "http://localhost:8081", 
   credentials: true,
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

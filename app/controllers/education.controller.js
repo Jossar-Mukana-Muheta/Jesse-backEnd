@@ -1,6 +1,8 @@
 const db = require("../models");
 const Education = db.education;
 const fs = require("fs");
+const {format} = require('util');
+const Multer = require('multer');
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {

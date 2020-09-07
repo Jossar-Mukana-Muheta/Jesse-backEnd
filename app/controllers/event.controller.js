@@ -10,7 +10,6 @@ exports.create = (req, res) => {
         imageUrl: `${req.protocol}://${req.get("host")}/images/${
           req.file.filename
         }`});
-
         event
         .save()
         .then(res.status(201).json({ message: "évenement enregistré" }))
