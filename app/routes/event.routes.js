@@ -8,7 +8,7 @@ module.exports = app => {
   var router = require("express").Router();
 
   // Create a new Tutorial
-  router.post("/",multer,auth, event.create);
+  router.post("/",auth,multer, event.create);
 
   // Retrieve all event
   router.get("/", event.findAll);

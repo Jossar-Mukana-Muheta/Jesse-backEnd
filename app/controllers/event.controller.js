@@ -10,10 +10,11 @@ exports.create = (req, res) => {
         imageUrl: `${req.protocol}://${req.get("host")}/images/${
           req.file.filename
         }`});
+
         event
         .save()
-        .then(res.status(201).json({ message: "évenement enregistré" }))
-        .catch(res.status(401).json({ error}));
+        .then(()=>res.status(201).json({ message: "évenement enregistré" }))
+        .catch(error =>res.status(401).json({ error}));
 };
 
 // Retrieve all Tutorials from the database.
