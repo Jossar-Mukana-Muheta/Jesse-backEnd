@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const eventObjet = JSON.parse(req.body.event);
     const event = new Event({
         ...eventObjet,
-        imageUrl: `https://https://jossar-dev.fr/images/${
+        imageUrl: `https://jossar-dev.fr/images/${
           req.file.filename
         }`});
 
