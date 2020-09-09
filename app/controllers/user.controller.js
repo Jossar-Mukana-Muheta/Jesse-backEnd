@@ -36,7 +36,7 @@ exports.login = (req, res) => {
             'RANDOM_TOKEN_SECRET',
             { expiresIn: '30m' }
           )
-          res.redirect('/Dashboard');
+          
           res.status(200).json({accessToken
           });
           
