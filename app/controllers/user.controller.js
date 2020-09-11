@@ -34,7 +34,7 @@ exports.login = (req, res) => {
           const accessToken = jwt.sign(
             { userId: user._id },
             'RANDOM_TOKEN_SECRET',
-            { expiresIn: '30m' }
+            { expiresIn: '1h' }
           )
           
           res.status(200).json({accessToken
