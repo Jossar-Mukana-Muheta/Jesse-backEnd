@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const projetObjet = JSON.parse(req.body.projet);
     const projet = new Projet({
         ...projetObjet,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        imageUrl: `https://jossar-dev.fr/images/${
           req.file.filename
         }`});
 

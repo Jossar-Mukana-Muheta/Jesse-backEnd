@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   const espoirObjet = JSON.parse(req.body.espoir);
     const espoir = new Espoir({
         ...espoirObjet,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        imageUrl: `https://jossar-dev.fr/images/${
           req.file.filename
         }`});
 

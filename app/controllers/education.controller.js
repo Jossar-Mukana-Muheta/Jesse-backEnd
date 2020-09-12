@@ -9,10 +9,9 @@ exports.create = (req, res) => {
   const educationObjet = JSON.parse(req.body.education);
   const education = new Education({
     ...educationObjet,
-    imageUrl: `${req.protocol}://${req.get("host")}/images/${
-      req.file.filename
-    }`,
-  });
+    imageUrl: `https://jossar-dev.fr/images/${
+          req.file.filename
+        }`});
 
   education
     .save()
