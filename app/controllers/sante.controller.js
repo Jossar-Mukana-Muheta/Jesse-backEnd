@@ -6,7 +6,7 @@ exports.create = (req, res) => {
   const santeObjet = JSON.parse(req.body.sante);
     const sante = new Sante({
         ...santeObjet,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        imageUrl: `https://jossar-dev.fr/images/${
           req.file.filename
         }`});
 

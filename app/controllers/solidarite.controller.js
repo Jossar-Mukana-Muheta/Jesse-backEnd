@@ -6,7 +6,7 @@ exports.create = (req, res) => {
   const solidariteObjet = JSON.parse(req.body.solidarite);
     const solidarite = new Solidarite({
         ...solidariteObjet,
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${
+        imageUrl: `https://jossar-dev.fr/images/${
           req.file.filename
         }`});
 
